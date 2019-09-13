@@ -218,6 +218,11 @@ func (a *Authenticator) idTokenVerifier() (*oidc.IDTokenVerifier, bool) {
 	return nil, false
 }
 
+func (a *Authenticator) HasVerifier() bool {
+	_, ok := a.idTokenVerifier()
+	return ok
+}
+
 func (a *Authenticator) Close() {
 	a.cancel()
 }
